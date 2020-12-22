@@ -27,6 +27,7 @@ import { Path } from "../router/Path";
 import Console from "./console/Console";
 import MenuItem, { MenuItemProps } from "./menu/MenuItem";
 import Overview from "./overview/Overview";
+import SetupWarning from "./SetupWarning";
 import Tradehistory from "./tradehistory/Tradehistory";
 import Wallets from "./wallet/Wallets";
 
@@ -184,6 +185,7 @@ const Dashboard = (): ReactElement => {
         )}
       </Drawer>
       <main className={classes.content}>
+        {!syncInProgress && <SetupWarning />}
         <Switch>
           {menuItems.map((item) => (
             <Route exact path={`${path}${item.path}`} key={item.text}>

@@ -19,7 +19,7 @@ import Address from "./Address";
 import BoltzFeeInfo from "./BoltzFeeInfo";
 import ErrorMessage from "./ErrorMessage";
 import { withdraw } from "./walletUtil";
-import WarningMessage from "./WarningMessage";
+import WarningMessage from "../../common/WarningMessage";
 
 type WithdrawAddressProps = {
   currency: string;

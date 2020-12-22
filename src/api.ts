@@ -12,6 +12,7 @@ import { Status } from "./models/Status";
 import { TradehistoryResponse } from "./models/TradehistoryResponse";
 import { TradinglimitsResponse } from "./models/TradinglimitsResponse";
 import io from "socket.io-client";
+import { GetMnemonicResponse } from "./models/GetMnemonicResponse";
 
 const url =
   process.env.NODE_ENV === "development"
@@ -139,6 +140,7 @@ export default {
   tradehistory$(): Observable<TradehistoryResponse> {
     return fetchJsonResponse(`${xudPath}/tradehistory`);
   },
+
   boltzDeposit$(currency: string): Observable<DepositResponse> {
     return fetchJsonResponse(`${boltzPath}/deposit/${currency.toLowerCase()}`);
   },
@@ -169,6 +171,18 @@ export default {
       JSON.stringify({ password }),
       "POST"
     );
+  },
+
+  changePassword$(newPassword: string, oldPassword: string): Observable<void> {
+    return fetchJsonResponse(
+      `${xudPath}/changepass`,
+      JSON.stringify({ newPassword, oldPassword }),
+      "POST"
+    );
+  },
+
+  getMnemonic$(): Observable<GetMnemonicResponse> {
+    return fetchJsonResponse(`${xudPath}/mnemonic`);
   },
 
   sio: {

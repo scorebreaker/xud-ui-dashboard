@@ -18,7 +18,7 @@ import Address from "./Address";
 import BoltzFeeInfo from "./BoltzFeeInfo";
 import CheckBoltzTransactionStatus from "./CheckBoltzTransactionStatus";
 import ErrorMessage from "./ErrorMessage";
-import WarningMessage from "./WarningMessage";
+import WarningMessage from "../../common/WarningMessage";
 
 type DepositProps = {
   currency: string;
