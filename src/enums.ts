@@ -12,3 +12,8 @@ export enum OrderSide {
   BUY = "BUY",
   SELL = "SELL",
 }
+
+export enum ConnectionType {
+  LOCAL = "local",
+  REMOTE = "remote",
+}
